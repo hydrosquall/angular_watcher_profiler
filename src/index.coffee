@@ -86,11 +86,11 @@ captureAndLog= (item, name) ->
   console.log(x)
   # console.save(x, name + d.toJSON())
 
-captureAndLog(document.documentElement ,'total')
+captureAndLog(document.documentElement ,'total') # Not yet a good way to pass in active item
 
 # watchMe = $('header-bar')[0]
 # Watchers for some DOM element tied to variable watchMe
-try 
-  captureAndSave(watchMe, 'watchedElement')
-catch
-  console.log("Set a DOM element to watchMe to get watchers associated with it")
+# try 
+#   captureAndLog(watchMe, 'watchedElement')
+# catch
+#   console.log("Set a DOM element to watchMe to get watchers associated with it")

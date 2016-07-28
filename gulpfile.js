@@ -26,6 +26,7 @@ gulp.task('minify-js', function() {
 
 gulp.task('clean-all', function() {
     del('./tmp/');
+    del('./public/');
 });
 
 // Main Build Task
@@ -37,9 +38,6 @@ gulp.task('build', ['clean-all', 'coffee', 'minify-js'], function() {
 gulp.task('bookmark', ['build'], function() {
   gulp.src('./tmp/*.js')
     .pipe($.plumber())
-    .pipe($.bookmarklet({
-      format: 'html',
-      filename: 'bookmarkPage'
-    }))
+    .pipe($.bookmarklet())
     .pipe(gulp.dest('./public/'));
 });

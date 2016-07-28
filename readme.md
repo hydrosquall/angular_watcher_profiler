@@ -1,8 +1,7 @@
 
 # Installation
 
-1. Visit this page [here](public/index.html)
-2. Link into your bookmarks bar
+1. Visit [here](public/) for access to the various bookmarks. The `.min.js` files are raw links, whereas the `.js` files can be used as chrome code snippets.
 
 # Usage
 
