@@ -16,7 +16,36 @@ watchMe = $0 // active element in inspector when using chrome
 ```
 3. Bookmarklet extends console with a `console.save(thing, name)` method, where `thing` is an array of objects and `name` is the name of the file to save to. The JSON file can be opened easily using the pandas library in Python or the exploratory.io interface in R.
 
-# Configuration
+# Save your data!
+
+```javascript
+  // Paste the following into the console, or run as a Chrome snippet
+  (function(console){
+
+  console.save = function(data, filename){
+
+      if(!data) {
+          console.error('Console.save: No data')
+          return;
+      }
+
+      if(typeof data === "object"){
+          data = JSON.stringify(data, undefined, 4)
+      }
+
+      var blob = new Blob([data], {type: 'text/json'}),
+          e    = document.createEvent('MouseEvents'),
+          a    = document.createElement('a')
+
+      a.download = filename
+      a.href = window.URL.createObjectURL(blob)
+      a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
+      e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+      a.dispatchEvent(e)
+   }
+  })(console)
+  // Run with console.save(variableName, 'filename')
+```
 
 # Building the extension for yourself
 
