@@ -25,8 +25,8 @@ gulp.task('minify-js', function() {
 });
 
 gulp.task('clean-all', function() {
-    del('./tmp/');
-    del('./public/');
+    del('./tmp/**');
+    del('./public/**');
 });
 
 // Main Build Task
