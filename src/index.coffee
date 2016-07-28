@@ -83,10 +83,11 @@ do (console) ->
 captureAndLog= (item, name) ->
   d = new Date()
   x = getWatchers()
+  console.log(name + ": " + x.length + " watchers")
   console.log(x)
   # console.save(x, name + d.toJSON())
 
-captureAndLog(document.documentElement ,'total') # Not yet a good way to pass in active item
+captureAndLog(document.documentElement ,'Entire Page') # Not yet a good way to pass in active item
 
 # watchMe = $('header-bar')[0]
 # Watchers for some DOM element tied to variable watchMe
